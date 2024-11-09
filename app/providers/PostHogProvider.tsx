@@ -7,9 +7,9 @@ import { initPostHog } from "../posthog_client";
 
 export default function PostHogProvider({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
   const pathname = usePathname();
 
   useEffect(() => {
