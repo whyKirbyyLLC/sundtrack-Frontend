@@ -12,7 +12,7 @@ export async function getMongoClient() {
         if (!MONGODB_URI) {
             throw new Error("MONGODB_URI is not defined in the environment variables.");
         }
-        const client = await MongoClient.connect(MONGODB_URI as string);
+        const client = await MongoClient.connect(MONGODB_URI);
         cachedClient = client;
         return client;
     } catch (error) {
