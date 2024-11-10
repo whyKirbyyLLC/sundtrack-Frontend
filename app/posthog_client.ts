@@ -4,7 +4,7 @@ import posthog from 'posthog-js';
 
 export function initPostHog() {
     if (typeof window !== 'undefined') {
-        const apiKey = process.env.NEXT_PUBLIC_POSTHOG_API_KEY;
+        const apiKey = process.env.POSTHOG_API_KEY;
         
         if (!apiKey) {
             console.warn('PostHog API key not found');
