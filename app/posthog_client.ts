@@ -4,12 +4,18 @@ import posthog from 'posthog-js';
 
 export function initPostHog() {
     if (typeof window !== 'undefined') {
-        posthog.init(process.env.POSTHOG_API_KEY!,
-            {
-                api_host: "https://eu.i.posthog.com",
-                person_profiles: "always",
-                autocapture: true,
-                capture_pageview: true,
-            });
+        const apiKey = process.env.NEXT_PUBLIC_POSTHOG_API_KEY;
+        
+        if (!apiKey) {
+            console.warn('PostHog API key not found');
+            return;
+        }
+
+        posthog.init(apiKey, {
+            api_host: "https://eu.i.posthog.com",
+            person_profiles: "always",
+            autocapture: true,
+            capture_pageview: true,
+        });
     }
 }
