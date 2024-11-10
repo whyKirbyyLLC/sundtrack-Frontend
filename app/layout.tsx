@@ -1,6 +1,8 @@
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import PostHogProvider from './providers/PostHogProvider';
 import Header from './components/page/header';
+import './globals.css';
+
 export default function RootLayout({
   children,
 }: Readonly<{

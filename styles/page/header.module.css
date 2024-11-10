@@ -4,20 +4,22 @@
     align-items: center;
     padding: 1rem 2rem;
     position: relative;
+    background-color: var(--background-color);
 }
 
 .brand {
-    font-size: 2.5rem;
+    font-size: 3vw;
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+    font-family: var(--font-secondary);
 }
 
 .navigation {
-    font-size: 1rem;
+    font-size: 1.25vw;
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
     transition: all 0.1s ease;
     position: relative;
@@ -31,13 +33,14 @@
 .navigation a {
     text-decoration: none;
     color: inherit;
+    font-family: var(--font-primary);
 }
 
 .menuButton {
     text-decoration: none;
     color: inherit;
     z-index: 1001;
-    font-size: 1rem;
+    font-size: 1.25vw;
     border: none;
     background: none;
     cursor: pointer;
@@ -71,6 +74,10 @@
 }
 
 @media (max-width: 768px) {
+    .brand {
+        font-size: 5vw;
+    }
+
     .navigation a:not(.menuButton) {
         display: none;
     }
@@ -82,5 +89,9 @@
     .menu {
         width: 100%;
         max-width: 300px;
+    }
+
+    .menuButton {
+        font-size: 4vw;
     }
 }
