@@ -13,7 +13,7 @@ export default function Footer() {
                     <h4 className={styles.columnTitleVersion}>sundtrack v0.0.1</h4>
                     <Link href="/contact">scientific-background</Link>
                     <Link href="/contact">protocols and methods</Link>
-                    <p className={styles.copyright}>© Sundtrack</p>
+                    <p className={styles.copyright}>© sundtrack</p>
                 </div>
 
                 <div className={styles.column}>
@@ -30,7 +30,7 @@ export default function Footer() {
                     <Link href="/contact">find us on Facebook</Link>
                 </div>
             </div>
-            <p className={`${styles.copyright} ${styles.copyrightMobile}`}>© Sundtrack</p>
+            <p className={`${styles.copyright} ${styles.copyrightMobile}`}>© sundtrack</p>
         </footer>
     );
 }
