@@ -32,7 +32,43 @@ export default function Home() {
 				</div>
 			</div>
 			<div className={styles.bottom}>
-				test
+				<div className={styles.sectionTitle}>How does it work?</div>
+				<div className={styles.steps}>
+					<div className={styles.step}>
+						<div className={styles.stepTitle}>1. Track your eating habits in our tracker</div>
+						<div className={styles.stepContent}>
+							<div className={styles.stepImage}>
+								<img src="/phone_small.png" alt="Icon 2" />
+							</div>
+							<div className={styles.stepText}>
+								Use our tracker to log what you eat each day, from a single week to a full month. For accurate insights, we recommend tracking for at least one week — a period that provides a representative snapshot of your typical diet. The longer you track,
+								the more personalized and precise your nutritional analysis becomes, helping you make informed adjustments for better health.
+							</div>
+						</div>
+					</div>
+					<div className={styles.step}>
+						<div className={styles.stepTitle}>2. Submit your data for review</div>
+						<div className={styles.stepContent}>
+							<div className={styles.stepText}>
+								Once you've logged your meals and feel confident you have a representative view of your diet, simply submit your data for analysis. We'll take it from there, providing a detailed, science-backed report to help you understand your nutritional profile and identify areas for improvement.
+							</div>
+							<div className={styles.stepImage}>
+								<img src="/analysis_small.png" alt="Icon 1" />
+							</div>
+						</div>
+					</div>
+					<div className={styles.step}>
+						<div className={styles.stepTitle}>3. Implement our tips into your diet</div>
+						<div className={styles.stepContent}>
+							<div className={styles.stepImage}>
+								<img src="/supplements_small.png" alt="Icon 3" />
+							</div>
+							<div className={styles.stepText}>
+								With your personalized report in hand, you'll receive clear, actionable tips to improve your nutrition. Integrate these recommendations into your daily routine, making small, manageable changes that can have a big impact on your overall health and well-being.
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
