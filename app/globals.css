@@ -5,6 +5,8 @@
   --font-primary: 'Manrope', sans-serif;
   --font-secondary: 'Libre Baskerville', serif;
   --background-color: #F0EFE9;
+  --background-color-secondary: #DED0B6;
+  --text-color: #000000;
 }
 
 * {
@@ -13,4 +15,12 @@
 
 body {
   background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  flex: 1;
 }
