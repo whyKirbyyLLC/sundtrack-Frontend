@@ -3,9 +3,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/page/header.module.css";
 import Link from "next/link";
+import { useUser } from '@auth0/nextjs-auth0/client';
+import LogoutButton from "@/app/components/button/LogoutButton";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user } = useUser();
 
     const handleClickOutside = (e: MouseEvent) => {
         const menu = document.querySelector(`.${styles.menu}`);
@@ -31,6 +34,9 @@ export default function Header() {
             <Link className={styles.brand} href="/">sundtrack</Link>
             <nav className={`${styles.navigation} ${isMenuOpen ? styles.navigationShifted : ''}`}>
                 <Link href="/account" onClick={() => setIsMenuOpen(false)}>account</Link>
+                {user && (
+                    <Link href="/track" onClick={() => setIsMenuOpen(false)}>track</Link>
+                )}
                 <Link href="/pricing" onClick={() => setIsMenuOpen(false)}>pricing</Link>
                 {!isMenuOpen && (
                     <Link href="#" 
@@ -47,10 +53,11 @@ export default function Header() {
                         className={styles.closeButton}
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        Close
+                        close
                     </Link>
                     <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
                     <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+                    {user && <LogoutButton />}
                 </nav>
             </div>
         </header>
