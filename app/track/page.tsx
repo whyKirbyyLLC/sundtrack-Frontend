@@ -57,7 +57,7 @@ export default function Track() {
 
     const isPaidUser = roles.includes('Paid User');
 
-    const assignPaidUserRole = async () => {
+    const handleRoleUpdate = async (action: 'add' | 'remove') => {
         if (!user) {
             setError('User is not logged in.');
             return;
@@ -76,16 +76,19 @@ export default function Track() {
                 body: JSON.stringify({
                     userId: user.sub,
                     roleName: 'Paid User',
-                    action: 'add',
+                    action,
                 }),
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.error || 'Failed to assign role');
+                throw new Error(errorData.error || `Failed to ${action} role`);
             }
 
             setSuccess(true);
+            if (action === 'remove') {
+                setRoles(roles.filter(role => role !== 'Paid User'));
+            }
         } catch (error: any) {
             setError(error.message);
         } finally {
@@ -93,42 +96,8 @@ export default function Track() {
         }
     };
 
-    const removePaidUserRole = async () => {
-        if (!user) {
-            setError('User is not logged in.');
-            return;
-        }
-
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
-
-        try {
-            const response = await fetch('/api/auth/update-role', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    userId: user.sub,
-                    roleName: 'Paid User',
-                    action: 'remove',
-                }),
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error || 'Failed to remove role');
-            }
-
-            setSuccess(true);
-            setRoles(roles.filter(role => role !== 'Paid User'));
-        } catch (error: any) {
-            setError(error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
+    const assignPaidUserRole = () => handleRoleUpdate('add');
+    const removePaidUserRole = () => handleRoleUpdate('remove');
 
     if (isLoading) {
         return <p>Loading user data...</p>;
