@@ -30,6 +30,7 @@
 @media (max-width: 768px) {
     .title {
         font-size: 8vw;
+        margin-top: 5vw;
     }
 
     .subtitle {

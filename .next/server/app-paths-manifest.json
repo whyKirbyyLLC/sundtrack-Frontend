@@ -1,6 +1,6 @@
 {
-  "/page": "app/page.js",
   "/track/page": "app/track/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/auth/[auth0]/route": "app/api/auth/[auth0]/route.js"
+  "/api/auth/[auth0]/route": "app/api/auth/[auth0]/route.js",
+  "/api/auth/update-role/route": "app/api/auth/update-role/route.js"
 }
